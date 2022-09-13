@@ -16,7 +16,7 @@ public class Debtor extends PanacheEntityBase {
     @Column(name = "DE_NAME")
     public String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     public Account account;
 
     public Debtor() {

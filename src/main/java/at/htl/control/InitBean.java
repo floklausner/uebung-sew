@@ -8,6 +8,7 @@ import io.quarkus.runtime.StartupEvent;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
 @ApplicationScoped
@@ -24,7 +25,7 @@ public class InitBean {
 
     public void init(@Observes StartupEvent event) {
 
-        //Write data into Account table
+       // Write data into Account table
         Account klausner = new Account(
                 "Florian Klausner",
                 "Tolmezzo Straße 2",
@@ -46,20 +47,22 @@ public class InitBean {
                 "mandelrosi@gmail.com"
         );
 
-        acountRepository.save(klausner);
-        acountRepository.save(dorfinger);
-        acountRepository.save(mandel);
+        klausner = acountRepository.save(klausner);
+        dorfinger = acountRepository.save(dorfinger);
+        mandel = acountRepository.save(mandel);
 
         //Write data into Deptor table
         Debtor starka = new Debtor("Lukas Starka", klausner);
         Debtor wiesinger = new Debtor("Jonas Wiesinger", mandel);
         Debtor scholl = new Debtor("Sebastian Scholl", dorfinger);
 
-        debtorRepository.save(starka);
-        debtorRepository.save(wiesinger);
-        debtorRepository.save(scholl);
+        starka = debtorRepository.save(starka);
+        wiesinger = debtorRepository.save(wiesinger);
+        scholl = debtorRepository.save(scholl);
 
         //Write data into Entry table
+        Entry entry1 = new Entry(LocalDateTime.now(), 12.40, "Zu viel Swag", false, starka);
+
         entryRepository.save(
                 new Entry(LocalDateTime.now(), 12.40, "Zu viel Swag", false, starka)
         );

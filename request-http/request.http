@@ -1,0 +1,20 @@
+GET localhost:8080/account
+Content-Type: application/json
+
+###
+
+GET localhost:8080/account/1002
+Content-Type: application/json
+
+###
+
+POST localhost:8080/account
+Content-Type: application/json
+
+{
+  "address": "SmallBoobStreet 1",
+  "email": "Batman@iAmBatman.com",
+  "id": 1004,
+  "name": "Batman manbat",
+  "phone": "+43 690 14166621"
+}
