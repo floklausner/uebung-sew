@@ -45,3 +45,40 @@ Content-Type: application/json
   "id": 7,
   "name": "Florian Klausner"
 }
+
+###
+
+GET localhost:8080/entry
+Content-Type: application/json
+
+###
+
+GET localhost:8080/entry/3
+Content-Type: application/json
+
+###
+
+POST localhost:8080/entry
+Content-Type: application/json
+
+{
+  "amount": 69.79,
+  "date": "2022-09-13T16:49:29.148846",
+  "debtor": {
+    "account": {
+      "address": "WitzigStraße 2",
+      "email": "witzig@gmail.com",
+      "id": 1009,
+      "name": "Sandra Miningsdorfer",
+      "phone": "+43 664 23432423"
+    },
+    "id": 3,
+    "name": "Sebastian Scholl"
+  },
+  "edited": false,
+  "id": 7,
+  "reason": "Cool zu cool Swag"
+}
+
+###
+
