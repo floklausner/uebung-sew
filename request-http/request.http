@@ -18,3 +18,30 @@ Content-Type: application/json
   "name": "Batman manbat",
   "phone": "+43 690 14166621"
 }
+
+###
+
+GET localhost:8080/debtor
+Content-Type: application/json
+
+###
+
+GET localhost:8080/debtor/3
+Content-Type: application/json
+
+###
+
+POST localhost:8080/debtor
+Content-Type: application/json
+
+{
+  "account": {
+    "address": "superstreet 1",
+    "email": "super@man.com",
+    "id": 1006,
+    "name": "Super Man",
+    "phone": "+43 664 0487625"
+  },
+  "id": 7,
+  "name": "Florian Klausner"
+}
